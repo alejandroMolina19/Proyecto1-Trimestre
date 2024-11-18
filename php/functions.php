@@ -219,6 +219,7 @@ function noticiasTres($conexion){
     } else {
         echo"No hay ninguna noticia en la bd.";
     }
+    return $noticias = [];
 }
 
 /**
@@ -238,6 +239,7 @@ function testimonioRand($conexion){
     else{
         echo"No se ha echo la funcion testimonio";
     }
+    return $testimonios = [];
 }
 
 function testimonio($conexion){
