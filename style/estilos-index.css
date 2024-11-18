@@ -1,17 +1,159 @@
-#noticias-index{
-    display: flex;
-    padding: 5%;
-    backdrop-filter: blur(10px);
-    gap: 10%;
-}
-
-.noticias{
-    background-color:gray ;
-    border-radius: 10px;
-    padding: 10px;
-}
-
 section h2{
     padding: 5%;
     text-align: center;
+}
+
+/*############################################################################*/
+#noticias-index{
+    height: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    padding: 5%;
+    flex-wrap: wrap;
+
+}
+
+#noticias-index>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(133, 131, 131);
+    border-radius: 50%;
+    width: 4.5%;
+    height: 25%;
+    box-shadow: 0px 0px 10px 3px gray;
+}
+
+
+#noticias-index>a:hover{
+    background-color: rgb(172, 172, 172);
+    box-shadow: 0px 0px 10px 4px rgb(180, 179, 179);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#noticias-index a img{
+    width: 25%;
+}
+
+.noticias{
+    
+    background-color:rgb(100, 99, 99) ;
+    border-radius: 10px;
+    padding: 10px;
+    width: 25%;
+    height: 90%;
+    display: none;
+    color: rgb(216, 213, 213);
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.noticias h2{
+    color: white(194, 97, 84, 0.856) ;
+}
+.noticias:nth-child(2){/*Coge el segundo hijo del contenedor padre pero con la clase .noticias ya que es como un condicional*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+}
+
+.verMas,.volver{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 50%;
+    height: 20%;
+}
+
+
+
+
+
+/*#########################################################################################*/
+
+.testimonios{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    flex-direction: column;
+    background-color: beige;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.testimonios h2{
+    padding: 0;
+}
+
+#testimonios-index{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+
+
+
+
+/*###########################################################*/
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
 }

@@ -7,24 +7,36 @@
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="style/estilosGenerales.css">
     <link rel="stylesheet" href="style/estilos-index.css">
+    <script src="js/app.js" defer></script>
+    
 </head>
 <body>
     
     <?php
-    require_once("sql/config.php");
-    require_once 'php/functions.php';
-    $conexion=conectar($nombre_host,$nombre_usuario,$password_db,$nombre_db);
-    generarCabecera("assets/logo.png");
+        require_once './sql/config.php';
+        require_once './php/functions.php';
+        $conexion=conectar($nombre_host,$nombre_usuario,$password_db,$nombre_db);
+        generarCabecera("assets/logo.png","paginas/","");
     ?>
 
     <section id="noticias-index">
         <?php
-            $noticias=noticias($conexion,1);
-            generarNoticias($noticias);
+            $noticias=noticiasTres($conexion);
+            echo"<a id='botonAtrasIndex'><img src='assets/atras.png'></a>";
+            generarNoticias($noticias,'paginas/noticia.php');
+            echo"<a id='botonAdelanteIndex'><img src='assets/proximo.png'></a>";
+
+        ?>
+    </section>
+    <section id="testimonios-index">
+        <?php
+            $testimonios=testimonioRand($conexion);
+            generarTestimonio($testimonios);
         ?>
     </section>
 
     <?php
+        
         generarFooter();
     ?>    
     
