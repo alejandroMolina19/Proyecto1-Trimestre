@@ -87,6 +87,53 @@ function generarNoticia($paginaVolver){
         </div>";
 }
 
+function generarFormSocio(){
+    echo"
+    <form id='añadirSocioForm' class='formulario' method='POST' action='../respuestas/respuestaSocios.php'>
+        <label><input type='file' name='foto' id='foto'>Imagen Usuario</label>
+        <input type='text' name='nombre' id='nombre' placeholder='Nombre Completo'>
+        <input type='text' name='usuario' id='usuario' placeholder='Usuario'>
+        <input type='text' name='telefono' id='telefono' placeholder='Telefono'>
+        <input type='text' name='edad' id='edad' placeholder='Edad'>
+        <input type='password' name='contraseña' id='contraseña' placeholder='Contraseña'>
+        <input type='password' name='confirmarContraseña' id='confirmarContraseña' placeholder='Confirmar Contraseña'>
+        <input type='submit'></input>
+    </form>
+    ";
+}
+
+function generarFormTestimonios(){
+    echo"
+    <form id='añadirTestimonioForm' class='formulario' method='POST' action='../respuestas/respuestaTestimonio.php'>
+        <textarea name='contenido' id='contenido' placeholder='Contenido'></textarea>
+        <input type='text' name='fecha' id='contenido' placeholder='Fecha'>
+        <input type='submit'>
+    </form>
+    ";
+}
+
+function generarFormNoticia(){
+    echo"
+    <form id='añadirNoticiaForm' class='formulario' method='POST' action='../respuestas/respuestaNoticia.php'>
+        <input type='text' name='titulo' id='titulo' placeholder='Titular'>
+        <textarea name='contenido' id='contenido' placeholder='Contenido'></textarea>
+        <label><input type='file' name='foto' id='foto'>Imagen Noticia</label>
+        <input type='text' name='fecha' id='contenido' placeholder='Fecha'>
+        <input type='submit'>
+    </form>
+    ";
+}
+
+function generarFormServicios(){
+    echo"
+    <form id='añadirNoticiaForm' class='formulario' method='POST' action='../respuestas/respuestaservicios.php'>
+        <input type='text' name='descripcion' id='descripcion' placeholder='Descripcion'>
+        <input type='text' name='duracion' id='duracion' placeholder='Duracion'>
+        <input type='text' name='precio' id='precio' placeholder='Precio'>
+        <input type='submit'>
+    </form>
+    ";
+}
 
 /**
  * Summary of generarTestimonio
@@ -255,6 +302,50 @@ function testimonio($conexion){
         echo"No se ha echo la funcion testimonio";
     }
 }   
+
+function insertSocios($conexion){
+    $nombre=$_POST['nombre'];
+    $foto=$_POST['foto'];
+    $usuario=$_POST['usuario'];
+    $telefono=$_POST['telefono'];
+    $edad=$_POST['edad'];
+    $contraseña=$_POST['contraseña'];
+    $sql="INSERT INTO socio (nombre,edad,contraseña,usuario,telefono,foto) values (?,?,?,?,?,?)";
+    $consulta=$conexion->prepare($sql);
+    $consulta->bind_param("sissss",$nombre,$edad,$contraseña,$usuario,$telefono,$foto);
+    $consulta->execute();
+}
+
+function insertTestimonio($conexion){
+    $contenido=$_POST['contenido'];
+    $fecha=$_POST['fecha'];
+    $id_socio=1;
+    $sql="INSERT INTO testimonio (id_socio,contenido,fecha) values (?,?,?)";
+    $consulta=$conexion->prepare($sql);
+    $consulta->bind_param("iss",$id_socio,$contenido,$fecha);
+    $consulta->execute();
+}
+
+function insertNoticia($conexion){
+    $contenido=$_POST['contenido'];
+    $fecha=$_POST['fecha'];
+    $titulo=$_POST['titulo'];
+    $imagen=$_POST['imagen'];
+    $sql="INSERT INTO noticia (titulo,contenido,imagen,fecha) values (?,?,?,?)";
+    $consulta=$conexion->prepare($sql);
+    $consulta->bind_param("ssss",$titulo,$contenido,$imagen,$fecha);
+    $consulta->execute();
+}
+
+function insertServicio($conexion){
+    $descripcion=$_POST['descripcion'];
+    $duracion=$_POST['duracion'];
+    $precio=$_POST['precio'];
+    $sql="INSERT INTO servicio (descripcion,duracion,precio) values (?,?,?)";
+    $consulta=$conexion->prepare($sql);
+    $consulta->bind_param("sii",$descripcion,$duracion,$precio);
+    $consulta->execute();
+}
 
 
 

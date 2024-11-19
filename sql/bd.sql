@@ -9,7 +9,7 @@
     contraseña varchar(255) not null,
     usuario varchar(12) unique not null,
     telefono varchar(255) not null,
-    foto varchar(100) not null
+    foto varchar(100) not null default 'usuario.jpg'
  );
  
  create table servicio(

@@ -16,14 +16,14 @@
         require_once './sql/config.php';
         require_once './php/functions.php';
         $conexion=conectar($nombre_host,$nombre_usuario,$password_db,$nombre_db);
-        generarCabecera("assets/logo.png","paginas/","");
+        generarCabecera("assets/logo.png","paginas/pg/","");
     ?>
 
     <section id="noticias-index">
         <?php
             $noticias=noticiasTres($conexion);
             echo"<a id='botonAtrasIndex'><img src='assets/atras.png'></a>";
-            generarNoticias($noticias,'paginas/noticia.php');
+            generarNoticias($noticias,'paginas/pg/noticia.php');
             echo"<a id='botonAdelanteIndex'><img src='assets/proximo.png'></a>";
 
         ?>

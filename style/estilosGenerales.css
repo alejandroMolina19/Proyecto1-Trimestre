@@ -169,10 +169,24 @@ footer{
 }
 .divAñadir{
     width: 100% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+hr{
+    width: 90%;
 }
 
 .añadir{
- 
+ text-decoration: none;
+ color: inherit;
+ border: 1px solid gray ;
+ padding: 2%;
+ border-radius: 10px;
+ background-color: rgb(168, 168, 168);
 }
 
 
