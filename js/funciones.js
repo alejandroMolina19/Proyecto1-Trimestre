@@ -137,13 +137,13 @@ const validarCheckbox = () => {
 let validacionesSocios = [validarNombre, validarUsuario, validarEdad, validarContraseña, validarConfirmarContraseña, validarTelefono, validarFoto];
 
 // Asociar validaciones con los campos específicos
-document.getElementById('nombre').addEventListener('input', validarNombre);
-document.getElementById('usuario').addEventListener('input', validarUsuario);
-document.getElementById('edad').addEventListener('input', validarEdad);
-document.getElementById('contraseña').addEventListener('input', validarContraseña);
-document.getElementById('confirmarContraseña').addEventListener('input', validarConfirmarContraseña);
-document.getElementById('telefono').addEventListener('input', validarTelefono);
-document.getElementById('foto').addEventListener('change', validarFoto);
+document.getElementById('nombre').addEventListener('input',()=> validarNombre);
+document.getElementById('usuario').addEventListener('input',()=> validarUsuario);
+document.getElementById('edad').addEventListener('input',()=> validarEdad);
+document.getElementById('contraseña').addEventListener('input', ()=>validarContraseña);
+document.getElementById('confirmarContraseña').addEventListener('input',()=> validarConfirmarContraseña);
+document.getElementById('telefono').addEventListener('input',()=> validarTelefono);
+document.getElementById('foto').addEventListener('change',()=> validarFoto);
 
 // Validación global cuando el formulario se envíe
 formularioSocios.addEventListener('submit', (e) => {

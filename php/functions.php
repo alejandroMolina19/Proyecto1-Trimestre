@@ -133,7 +133,7 @@ function generarFormNoticia(){
 
 function generarFormServicios(){
     echo"
-    <form id='añadirNoticiaForm' class='formulario' method='POST' action='../respuestas/respuestaservicios.php'>
+    <form id='añadirServiciosForm' class='formulario' method='POST' action='../respuestas/respuestaservicios.php'>
         <input type='text' name='descripcion' id='descripcion' placeholder='Descripcion'>
         <span class='error' id='descripcion'></span>
         <input type='text' name='duracion' id='duracion' placeholder='Duracion'>
