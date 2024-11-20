@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../style/estilosGenerales.css">
     <link rel="stylesheet" href="../../style/estilos-formularios.css">
+    <script src="../../js/validacion.js"></script>
 
     
 </head>

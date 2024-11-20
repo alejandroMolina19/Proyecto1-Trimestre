@@ -21,7 +21,7 @@
 
             $arrayTabla= todoTabla($conexion,$tablaSocios);
             generarSocios($arrayTabla);
-           echo"<div class='divAñadir'><hr><a id='añadirSocios' class='añadir' href='../formularios/añadirSocio.php'>Añadir Socios</a></div>";
+           echo"<div class='divAñadir'><hr><a id='añadirSocios' class='añadir' href='../formularios/addSocio.php'>Añadir Socios</a></div>";
 
         ?>
     </section>

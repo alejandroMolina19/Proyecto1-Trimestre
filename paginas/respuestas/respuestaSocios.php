@@ -20,8 +20,7 @@
     <section id="respuestaSocio">
         <?php
            insertSocios($conexion);
-           echo"<h2>Insertando socio. Redirigiendo en 3s...</h2>";
-           header("refresh:2;url=../pg/socios.php");
+           
         ?>
     </section>
 

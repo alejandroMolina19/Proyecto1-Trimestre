@@ -91,12 +91,19 @@ function generarFormSocio(){
     echo"
     <form id='añadirSocioForm' class='formulario' method='POST' action='../respuestas/respuestaSocios.php'>
         <label><input type='file' name='foto' id='foto'>Imagen Usuario</label>
+        <span class='error' id='error-foto'></span>
         <input type='text' name='nombre' id='nombre' placeholder='Nombre Completo'>
+        <span class='error' id='error-nombre'></span>
         <input type='text' name='usuario' id='usuario' placeholder='Usuario'>
+        <span class='error' id='error-usuario'></span>
         <input type='text' name='telefono' id='telefono' placeholder='Telefono'>
+        <span class='error' id='error-telefono'></span>
         <input type='text' name='edad' id='edad' placeholder='Edad'>
+        <span class='error' id='error-edad'></span>
         <input type='password' name='contraseña' id='contraseña' placeholder='Contraseña'>
+        <span class='error' id='error-contraseña'></span>
         <input type='password' name='confirmarContraseña' id='confirmarContraseña' placeholder='Confirmar Contraseña'>
+        <span class='error' id='error-confirmarContraseña'></span>
         <input type='submit'></input>
     </form>
     ";
@@ -128,8 +135,11 @@ function generarFormServicios(){
     echo"
     <form id='añadirNoticiaForm' class='formulario' method='POST' action='../respuestas/respuestaservicios.php'>
         <input type='text' name='descripcion' id='descripcion' placeholder='Descripcion'>
+        <span class='error' id='descripcion'></span>
         <input type='text' name='duracion' id='duracion' placeholder='Duracion'>
+        <span class='error' id='duracion'></span>
         <input type='text' name='precio' id='precio' placeholder='Precio'>
+        <span class='error' id='precio'></span>
         <input type='submit'>
     </form>
     ";
@@ -163,7 +173,7 @@ function generarSocios($arrayTabla){
 
         echo"
             <div class='socios'>
-                <img src='../assets/$datosTabla[foto]'><hr>
+                <img src='../../assets/$datosTabla[foto]'><hr>
                 <h2 class='tituloTestimonio'>$datosTabla[nombre]</h2>
                 <div id='datos-socios'>
                     <p><span>Usuario:</span> $datosTabla[usuario]</p>
@@ -310,10 +320,23 @@ function insertSocios($conexion){
     $telefono=$_POST['telefono'];
     $edad=$_POST['edad'];
     $contraseña=$_POST['contraseña'];
-    $sql="INSERT INTO socio (nombre,edad,contraseña,usuario,telefono,foto) values (?,?,?,?,?,?)";
-    $consulta=$conexion->prepare($sql);
-    $consulta->bind_param("sissss",$nombre,$edad,$contraseña,$usuario,$telefono,$foto);
-    $consulta->execute();
+    $sql="SELECT * from socio where usuario='$usuario' or telefono=$telefono";
+    $resultado=$conexion->query($sql);
+    if($resultado->num_rows<0){
+        $sql="INSERT INTO socio (nombre,edad,contraseña,usuario,telefono,foto) values (?,?,?,?,?,?)";
+        $resultado=$conexion->prepare($sql);
+        $resultado->bind_param("sissss",$nombre,$edad,$contraseña,$usuario,$telefono,$foto);
+        $resultado->execute();
+        echo"<h2>Insertando socio. Redirigiendo en 3s...</h2>";
+        header("refresh:2;url=../pg/socios.php");
+    }
+    else{
+        echo"<h2>Ya hay un socio con ese USUARIO o  TELEFONO</h2>";
+        header("refresh:2;url=../formularios/addSocio.php");
+
+    }
+
+    
 }
 
 function insertTestimonio($conexion){

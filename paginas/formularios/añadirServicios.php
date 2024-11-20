@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../style/estilosGenerales.css">
+    <link rel="stylesheet" href="../../style/estilos-formularios.css">
+    <script src="../../js/validacion.js" defer></script>
+    <script src="../../js/funciones.js" defer></script>
     
 </head>
 <body>
