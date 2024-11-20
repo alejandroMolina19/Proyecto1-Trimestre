@@ -320,9 +320,9 @@ function insertSocios($conexion){
     $telefono=$_POST['telefono'];
     $edad=$_POST['edad'];
     $contraseña=$_POST['contraseña'];
-    $sql="SELECT * from socio where usuario='$usuario' or telefono=$telefono";
+    $sql="SELECT * from socio where usuario='$usuario' or telefono='$telefono'";
     $resultado=$conexion->query($sql);
-    if($resultado->num_rows<0){
+    if($resultado->num_rows===0){
         $sql="INSERT INTO socio (nombre,edad,contraseña,usuario,telefono,foto) values (?,?,?,?,?,?)";
         $resultado=$conexion->prepare($sql);
         $resultado->bind_param("sissss",$nombre,$edad,$contraseña,$usuario,$telefono,$foto);
