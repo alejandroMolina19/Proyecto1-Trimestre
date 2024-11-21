@@ -192,6 +192,7 @@ function generarSocios($arrayTabla){
                     <p><span>Edad:</span> $datosTabla[edad]</p>
                     <p><span>Telefono:</span> $datosTabla[telefono]</p>
                 </div>
+                <a href='modificarSocios.php?foto=$datosTabla[foto]&nombre=$datosTabla[nombre]&usuario=$datosTabla[usuario]&edad=$datosTabla[edad]&telefono=$datosTabla[telefono]'>Modificar</a>
             </div>";
 
     }
