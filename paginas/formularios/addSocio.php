@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../../style/estilosGenerales.css">
     <link rel="stylesheet" href="../../style/estilos-formularios.css">
     <script src="../../js/validacion.js" defer></script>
-    <script src="../../js/funciones.js" defer></script>
+    <script src="../../js/formularios.js" defer></script>
+
 
     
 </head>

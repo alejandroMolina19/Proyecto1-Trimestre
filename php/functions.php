@@ -100,10 +100,17 @@ function generarFormSocio(){
         <span class='error' id='error-telefono'></span>
         <input type='text' name='edad' id='edad' placeholder='Edad'>
         <span class='error' id='error-edad'></span>
-        <input type='password' name='contraseña' id='contraseña' placeholder='Contraseña'>
-        <span class='error' id='error-contraseña'></span>
-        <input type='password' name='confirmarContraseña' id='confirmarContraseña' placeholder='Confirmar Contraseña'>
-        <span class='error' id='error-confirmarContraseña'></span>
+        <div class='campo' id='campo1'>
+            <input type='password' name='contraseña' id='contraseña' placeholder='Contraseña'>
+            <span class='error' id='error-contraseña'></span>
+            <span id='mostrar1'><img src='../../assets/esconder.png'></span>
+        </div>
+        <div class='campo' id='campo2'>
+            <input type='password' name='confirmarContraseña' id='confirmarContraseña' placeholder='Confirmar Contraseña'>
+            <span class='error' id='error-confirmarContraseña'></span>
+            <span id='mostrar2'><img src='../../assets/esconder.png'></span>
+        </div>
+        
         <input type='submit'></input>
     </form>
     ";
@@ -113,7 +120,7 @@ function generarFormTestimonios(){
     echo"
     <form id='añadirTestimonioForm' class='formulario' method='POST' action='../respuestas/respuestaTestimonio.php'>
         <textarea name='contenido' id='contenido' placeholder='Contenido'></textarea>
-        <input type='text' name='fecha' id='contenido' placeholder='Fecha'>
+        <span id='error-contenido' id='error-contenido' class='error'></span>
         <input type='submit'>
     </form>
     ";
@@ -123,9 +130,14 @@ function generarFormNoticia(){
     echo"
     <form id='añadirNoticiaForm' class='formulario' method='POST' action='../respuestas/respuestaNoticia.php'>
         <input type='text' name='titulo' id='titulo' placeholder='Titular'>
+        <span id='error-titulo' name='error-titulo' class='error'></span>
         <textarea name='contenido' id='contenido' placeholder='Contenido'></textarea>
+        <span id='error-contenido' name='error-contenido' class='error'></span>
         <label><input type='file' name='foto' id='foto'>Imagen Noticia</label>
+        <span id='error-foto' name='error-foto' class='error'></span>
         <input type='text' name='fecha' id='contenido' placeholder='Fecha'>
+        <span id='error-fecha' name='error-fecha' class='error'></span>
+
         <input type='submit'>
     </form>
     ";
@@ -135,11 +147,11 @@ function generarFormServicios(){
     echo"
     <form id='añadirServiciosForm' class='formulario' method='POST' action='../respuestas/respuestaservicios.php'>
         <input type='text' name='descripcion' id='descripcion' placeholder='Descripcion'>
-        <span class='error' id='descripcion'></span>
+        <span class='error' id='error-descripcion'></span>
         <input type='text' name='duracion' id='duracion' placeholder='Duracion'>
-        <span class='error' id='duracion'></span>
+        <span class='error' id='error-duracion'></span>
         <input type='text' name='precio' id='precio' placeholder='Precio'>
-        <span class='error' id='precio'></span>
+        <span class='error' id='error-precio'></span>
         <input type='submit'>
     </form>
     ";
@@ -341,8 +353,8 @@ function insertSocios($conexion){
 
 function insertTestimonio($conexion){
     $contenido=$_POST['contenido'];
-    $fecha=$_POST['fecha'];
     $id_socio=1;
+    $fecha=date('Y-m-d'); 
     $sql="INSERT INTO testimonio (id_socio,contenido,fecha) values (?,?,?)";
     $consulta=$conexion->prepare($sql);
     $consulta->bind_param("iss",$id_socio,$contenido,$fecha);

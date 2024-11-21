@@ -1,0 +1,49 @@
+#servicios-servicios{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+
+/* Estilo general para la sección de servicios */
+.servicios {
+    background-color: #f2f2f2; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px;
+    width: 25%;
+    height: 15vh;
+    margin: 15px auto; /* Centrar y añadir separación */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    
+}
+
+/* Título de los servicios */
+.titulo-servicios {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555; /* Gris más oscuro para el título */
+    border-bottom: 1px solid #ddd; /* Línea gris suave debajo */
+    padding-bottom: 5px;
+}
+
+/* Estilo para los párrafos */
+.servicios p {
+    font-size: 1.1em;
+    margin: 8px 0;
+    color: #666; /* Gris medio para el texto */
+}
+
+/* Efecto hover para el contenedor */
+.servicios:hover {
+    background-color: #e6e6e6; /* Fondo gris más oscuro al pasar el mouse */
+    color: #444; /* Texto ligeramente más oscuro */
+    
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
