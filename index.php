@@ -28,7 +28,7 @@
 
         ?>
     </section>
-    <br>
+    <br><br>
     <section id="testimonios-index">
         <?php
             $testimonios=testimonioRand($conexion);
