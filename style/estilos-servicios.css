@@ -11,6 +11,10 @@
 
 /* Estilo general para la sección de servicios */
 .servicios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #f2f2f2; /* Fondo gris claro */
     color: #333; /* Texto gris oscuro */
     border: 1px solid #ccc; /* Borde gris */
@@ -31,6 +35,7 @@
     color: #555; /* Gris más oscuro para el título */
     border-bottom: 1px solid #ddd; /* Línea gris suave debajo */
     padding-bottom: 5px;
+    text-align: center;
 }
 
 /* Estilo para los párrafos */
@@ -47,3 +52,4 @@
     
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
+

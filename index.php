@@ -28,6 +28,7 @@
 
         ?>
     </section>
+    <br>
     <section id="testimonios-index">
         <?php
             $testimonios=testimonioRand($conexion);

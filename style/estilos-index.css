@@ -39,27 +39,46 @@ section h2{
     width: 25%;
 }
 
-.noticias{
-    
-    background-color:rgb(182, 180, 180) ;
-    border-radius: 10px;
-    padding: 10px;
+#noticias-noticias a img,#noticia-noticias a img{
     width: 25%;
-    height: 90%;
-    display: none;
-    color: rgb(32, 32, 32);
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.noticias a:hover{
-    transform: scale(1.05);
-    background-color: rgb(116, 116, 116);
 }
 
-.noticias h2{
-    color: white(194, 97, 84, 0.856) ;
+.noticias{
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f2f2f2; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px;
+    width: 25%;
+    margin: 15px auto; /* Centrar y añadir separación */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    
+}
+
+.noticias h2,.noticia h2{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555; /* Gris más oscuro para el título */
+    border-bottom: 1px solid #ddd; /* Línea gris suave debajo */
+    padding-bottom: 5px;
+}
+
+.noticias p,.noticia p{
+    font-size: 1.1em;
+    margin: 8px 0;
+    color: #666; /* Gris medio para el texto */
+}
+
+.noticias:hover,.noticia:hover {
+    background-color: #e6e6e6; /* Fondo gris más oscuro al pasar el mouse */
+    color: #444; /* Texto ligeramente más oscuro */
+    
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
 .noticias:nth-child(2){/*Coge el segundo hijo del contenedor padre pero con la clase .noticias ya que es como un condicional*/
     display: flex;
@@ -81,6 +100,7 @@ section h2{
     border-radius: 10px;
     width: 50%;
     height: 20%;
+    padding: 2%;
 }
 
 
